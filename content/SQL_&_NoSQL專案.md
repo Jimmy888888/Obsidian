@@ -1,0 +1,18 @@
+- #公司專案
+- #SQL_learn
+-
+- ## 專案架構
+	- SQL : SQLite
+		- 快速查找 & 快速組裝資料
+	- NoSQL : InfluxDB
+		- 事件驅動
+		- 即時同步
+- ## 平常負責工作
+	- 確認PM需求
+	- 對接InfluxDB RD
+	- 優化NoSQL Query語法 / SQLite資料庫開發 / Unit Test
+	- 與後端RD合作
+	- 在多個services中交叉測試，修正出問題的service
+- ## 挑戰
+	- [[設計可拓展的SQL table結構 & 優化Query語法]]
+	- [[優化NoSQL Query語法]]

@@ -1,0 +1,17 @@
+- #[[AI agent]]
+- here are several AI agent projects on the Sui Network beyond SUI Agents. Here are some notable ones:
+- **SUI Agents**
+	- a pioneering AI project on the Sui Network, introducing an AI Agent Layer that enables users to create and tokenize AI agents with ease.[Ape Terminal](https://www.apeterminal.io/project/sui_agents?utm_source=chatgpt.com)
+	- **Key Features:**
+		- **AI Agent Creation:** Users can generate on-chain digital AI agents without coding, facilitating the development of AI-driven personas for platforms like Twitter to emulate influencers or celebrities, thereby enhancing engagement and community building. [Sui Agents](https://suiagents.ai/?utm_source=chatgpt.com)
+		- **Tokenization and Trading:** Each AI agent is tokenized, paired with the $SUIAI token, and integrated into the project's liquidity pools, allowing for straightforward launching, utilization, and trading of AI agents. [隨拍](https://suipad.xyz/ido/1019?utm_source=chatgpt.com)
+		- **Generative Infrastructure:** SUI Agents offers a zero-code generative infrastructure, empowering users to create on-chain digital AI agents and participate in AI-moderated public discussions, fostering interactive and meaningful dialogues. [Sui Agents](https://suiagents.ai/?utm_source=chatgpt.com)
+	- **Recent Developments:**
+		- **Funding:** SUI Agents has successfully raised $500,000 across two completed funding rounds, achieving a pre-valuation of $2.62 million. [iCodrops](https://icodrops.com/sui-agents/?utm_source=chatgpt.com)
+		- **Public Sale:** The project has conducted a public sale on SuiPad, providing opportunities for broader community participation.[隨拍](https://suipad.xyz/ido/1019?utm_source=chatgpt.com)
+- **Sentient AI**
+	- Sentient AI is developing an AI Agent capable of human-like thoughts and emotions, functioning as both a chatbot and personal assistant. They have secured $1.5 million in funding and are preparing to launch their AI Agent Launchpad on the Sui Network, aiming to provide high-speed interactions and scalability.[下載新聞](https://www.dlnews.com/research/sentient-ai-secures-15m-raise-prepares-ai-agent-launchpad-on-sui/?utm_source=chatgpt.com)
+- **Atoma**
+	- Atoma is an AI startup integrating its inference network with the Sui blockchain. Their platform enables developers to incorporate AI into applications across various domains, including DeFi and gaming, by providing tools for code generation, workflow automation, and asset creation.[Sui Blog](https://blog.sui.io/atoma-ai-artificial-intelligence-blockchain/?utm_source=chatgpt.com)
+- **DeSci Agents**
+	- DeSci Agents is a platform designed to launch decentralized science (DeSci) assets. It utilizes AI agents to grow audiences and generate liquidity for these assets, fostering the development and dissemination of scientific knowledge within the decentralized ecosystem.[Polkastarter](https://polkastarter.com/projects/desci-agents?utm_source=chatgpt.com)

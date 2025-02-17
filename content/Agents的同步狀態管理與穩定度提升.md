@@ -1,0 +1,52 @@
+- #C++專案
+-
+- ## 需求
+	- ### 前提
+		- 參考 #[[資料串流 & 修正memory leak]]
+		- 當產品有Agent註冊時，Agent會將 **過去** 的觸發事件資料同步到產品的NoSQL，產品接下來會對NoSQL裡Agent的觸發事件資料做資料分割，並且由產品的SQL儲存
+		- 產品會根據Agent的註冊時間順序，依照時間順序處理，且不會跳過任何Agent
+	- ### 目標
+		- 由於每個註冊到產品的Agent網路狀態都不同，產品依照時間順序處理時，可能有其中一個Agent網路狀態不好，導致拖累進度
+		- 產品需要能跳過網路狀態較差的Agent，先處理網路狀態好的Agent
+		- 在處理完所有狀態好的Agents，產品必須回頭處理狀態較差的Agents
+		- 還要判斷Agent是否網路斷線
+- ## 問題描述
+	- 需要從0建立紀錄每個Agent狀態的系統
+	- 需要定義 **狀態** ，達成哪些條件才會屬於某個狀態
+	- 每個狀態對應的執行動作
+- ## 解法
+	- ### 定義/判斷Agent狀態
+		- **Agent完成**
+			- 1.Agent註冊到產品當下的時間點之前發生的所有觸發事件，定義為 **過去** 的觸發事件
+			- 2.產品的NoSQL中，Agent的所有 **過去** 的觸發事件都完成資料分割，並儲存到產品SQL，定義為“完成”
+		- **Agent同步中**
+			- 1.Agent剛註冊到產品時預設“同步中”
+			- 2.當Agent註冊到產品，每格一段時間，產品會檢查自己的NoSQL，如果這段時間裡
+			  NoSQL有新增Agent資料，定義為“同步中”
+		- **Agent暫停**
+			- 當Agent註冊到產品，每格一段時間，產品會檢查自己的NoSQL，如果這段時間裡
+			  NoSQL沒有新增Agent資料，定義為“暫停”
+		- **Agent斷線**
+			- 當Agent處於“暫停”超過一段時間，定義為“斷線”
+	- ### 儲存Agent狀態
+		- 產品用SQL Table_Stat存儲每個Agent的狀態
+	- ### 不同狀態需要執行的動作
+		- Agent同步中
+			- 持續執行將產品的NoSQL中Agent的資料做資料分割，並存入產品的SQL
+		- Agent暫停
+			- 產品會存儲Agent進入“暫停”前的資料同步進度，並在Table_Stat將Agent標記“暫停”，然從Table_Stat選出下一個“同步中”的Agent
+		- Agent完成
+			- 產品會在Table_Stat將Agent標記“完成”
+		- Agent斷線
+			- 產品會在Table_Stat將Agent標記“斷線”
+	- ### 判斷Agent目前屬於什麼狀態
+		- 每隔一段固定時間產品會執行“判斷Agent目前屬於什麼狀態”的function
+		- 之後才能執行對應狀態需要的動作
+	- ### 狀態轉換圖
+		- Agent同步中->Agent暫停
+		- Agent暫停->Agent同步中
+		- Agent同步中->Agent完成
+		- Agent暫停->Agent斷線
+		- Agent斷線->END
+		- Agent完成->END
+		- ![image.png](../assets/image_1739513890587_0.png)

@@ -1,0 +1,117 @@
+- #[[BTC Core]]
+- Bitcoin's **peer-to-peer (P2P) network** is the backbone of its decentralized system, enabling nodes to communicate, propagate transactions, and synchronize the blockchain. Here's an overview of how Bitcoin nodes manage data within this network.
+  
+  ---
+- ## 1.  **Data Types Managed by Bitcoin Nodes**
+	- Bitcoin nodes handle several key types of data:
+	- ### (1)  **Transactions**
+		- **Mempool (Memory Pool):**
+			- Transactions are first stored in the mempool after validation but before inclusion in a block.
+				- Purpose: To hold unconfirmed transactions.
+				- Lifespan: Transactions stay until included in a block or expire (based on policy).
+	- ### (2)  **Blocks**
+		- **Block Headers:**
+			- A lightweight structure containing metadata about a block (e.g., timestamp, hash, Merkle root).
+				- Purpose: Used for synchronization and validation without needing full block data.
+		- **Full Blocks:**
+			- Complete data for all transactions included in a block.
+				- Stored on disk for long-term retention.
+				- Used for validating the blockchain.
+	- ### (3)  **Peers**
+		- Nodes maintain a **peer database** to track other nodes for communication.
+			- Stores IP addresses, connection status, and reliability metrics.
+			- Managed dynamically to maintain an optimal network of connections.
+	- ---
+- ## 2.  **How Bitcoin P2P Manages Data**
+	- ### (1)  **Transaction Propagation**
+		- When a new transaction is received by a node:
+		- **Validation:**
+			- The node validates the transaction (e.g., checks digital signatures, ensures sufficient funds).
+		- **Storage:**
+			- If valid, the transaction is added to the mempool.
+		- **Broadcast:**
+			- The transaction is relayed to connected peers using the `INV` (Inventory) message.
+	- ### (2)  **Block Propagation**
+		- When a new block is mined or received:
+		- **Validation:**
+			- The node validates the block (e.g., verifies Proof of Work, checks transactions).
+		- **Storage:**
+			- The block is added to the blockchain and stored on disk.
+		- **Broadcast:**
+			- The block is announced to peers, and its transactions are removed from the mempool.
+	- ### (3)  **Blockchain Synchronization**
+		- Nodes synchronize the blockchain by exchanging block headers and full blocks.
+		- During initial block download (IBD), nodes request blocks sequentially from genesis to the tip.
+	- ---
+- ## 3.  **Peer-to-Peer Messaging System**
+	- Bitcoin uses a custom protocol with specific message types for data management. Key message types include:
+	- ### (1)  **Inventory Management**
+		- `INV`:
+			- Nodes announce new transactions or blocks by sending an inventory message containing hashes.
+		- `GETDATA`:
+			- A peer requests the full data for specific hashes it hasn't seen.
+	- ### (2)  **Block Synchronization**
+		- `GETHEADERS`:
+			- Requests a chain of block headers for synchronization.
+		- `HEADERS`:
+			- Sends a chain of block headers.
+		- `BLOCK`:
+			- Sends a full block.
+	- ### (3)  **Transaction Relay**
+		- `TX`:
+			- Sends a transaction to a peer.
+		- `MEMPOOL`:
+			- Requests a peer's mempool transactions.
+	- ---
+- ## 4.  **Data Storage**
+	- Bitcoin nodes manage data using a combination of in-memory and on-disk storage:
+	- ### (1)  **In-Memory Data**
+		- **Mempool:** Holds unconfirmed transactions.
+		- **Active Connections:** Tracks information about connected peers.
+		- **Pending Data:** Temporary storage for incoming transactions/blocks during validation.
+	- ### (2)  **On-Disk Data**
+		- **Blockchain Data:** Stored in a series of `.dat` files in the `blocks/` directory.
+			- Contains block data and associated metadata.
+		- **UTXO Set:** A database (`chainstate/`) of all unspent transaction outputs for fast lookup.
+		- **Peers Database:** Persisted in `peers.dat` for re-establishing connections after restarts.
+	- ---
+- ## 5.  **Managing Network Resources**
+	- To manage data efficiently and ensure stability, Bitcoin nodes implement:
+	- ### (1)  **Bandwidth Management**
+		- Nodes limit the number of peers they connect to (default: 125).
+		- Prioritize sending/receiving important data (e.g., block headers over transactions).
+	- ### (2)  **Data Expiration**
+		- Transactions in the mempool are purged if they exceed size limits or become invalid.
+		- Orphan blocks (blocks missing parent blocks) are discarded after a certain period.
+	- ### (3)  **Block/Transaction Filters**
+		- Nodes use **Bloom filters** (for SPV wallets) or **BIP 157/158 compact block filters** to reduce the amount of data sent to lightweight clients.
+	- ---
+- ## 6.  **Key Algorithms and Techniques**
+	- ### (1)  **Gossip Protocol**
+		- Nodes propagate data to peers using a "gossip" model, ensuring that all nodes eventually receive the data while avoiding network overload.
+	- ### (2)  **Compact Blocks (BIP 152)**
+		- Reduces block transmission size by sending only the block header and short transaction IDs for known transactions.
+		- Peers request missing transactions to reconstruct the block.
+	- ### (3)  **Block Pruning**
+		- Allows nodes to discard old block data while retaining block headers and the UTXO set.
+			- Useful for reducing disk usage on resource-constrained devices.
+	- ---
+- ## 7.  **P2P Network Security**
+	- Bitcoin nodes incorporate several mechanisms to manage data securely:
+	- **Verification of Data:**
+		- Every transaction and block is validated before being accepted.
+	- **DoS Protection:**
+		- Misbehaving peers (e.g., sending invalid data) are banned.
+	- **Encryption:**
+		- While Bitcoin P2P traffic is not encrypted by default, Tor or VPN can be used for privacy.
+	- ---
+- ## 8.  **Real-World Example**
+	- ### Transaction Propagation Example:
+	- Alice's wallet creates a transaction and sends it to a local node.
+	- The node validates the transaction and adds it to the mempool.
+	- The node announces the transaction to peers via `INV`.
+	- Peers request the transaction using `GETDATA`.
+	- The transaction spreads across the network and eventually gets included in a block.
+	  
+	  ---
+- By efficiently managing data through these mechanisms, Bitcoin nodes maintain a synchronized and decentralized ledger while providing scalability, security, and reliability. If you’re diving into the code, explore the `net_processing.cpp`, `validation.cpp`, and `mempool.cpp` files in the Bitcoin Core repository for deeper insights.

@@ -1,0 +1,29 @@
+- #公司專案
+- #Golang_learn
+- ## 專案架構
+	- Go gin框架
+	- Runtime:
+		- 1. Client：發送 HTTP 請求到 Gin 伺服器
+		- 2. Gin Router：解析請求，匹配對應的路由和中間件
+		- 3. Handler：接收請求並處理邏輯，包含error handling
+		- 4. Repository/Database：(可選)與資料庫交互，獲取或存儲數據，專案中使用txt file(config)
+		- 5. Response：組裝回應，返回給客戶端
+- ## 用的哪些框架&為啥用
+	- gin 因為在大量API請求的時候 會自動把請求queue起來
+	- Performance：Optimized for speed; great for high-performance APIs.
+	- Easy Routing：Simplifies URL-to-handler mapping.
+	- Middleware：Supports middleware for request preprocessing.
+	- Built-in Features：
+		- JSON handling.
+		- Query parameters, path parameters, and form parsing.
+		- Error handling.
+- ## 平常負責哪些部分
+	- 確認PM需求
+	- 對接前端RD
+	- 對接Firmware RD
+	- 後端開發 / Troubleshoot / Unit Test
+	- 與後端RD合作
+- ## 遇到的挑戰
+	- [[新增時段控制功能]]
+		-
+		-

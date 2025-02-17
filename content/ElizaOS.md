@@ -1,0 +1,109 @@
+- #[[AI agent]]
+-
+- website: https://elizaos.ai/
+- ## [[ElizaOS ChatGPT summary]]
+- ## 我實際聽完的筆記
+	- ### AI Agent Dev School 1 pt 1
+		- Java -> JavaScript(no type limit, like python) -> TypeScript(just like c++, can't use the type that didn't 宣告)
+		- why using Java family? 兼容前端JavaScript 後端Node.js
+			- Node有npm(Node Package Manager) 可以管理各種package
+			- package.json裡的內容可被npm執行
+			- Eliza也可以在npm官網上找到
+		- [[pnpm]]
+			- Performant Node Package Manager, one of JavaScript package managers
+			- 用法：pnpm install
+				- 自動安裝package.json裡面的Node packages
+		- nvm
+			- Node version manager
+			- 用法：nvm use 23
+				- 指定安裝23版的npm
+		- package/core/src/defaultCharacter.ts
+			- bio:讓LLM知道基本角色設定
+			- lore:類似bio但是是關於角色的預設故事(角色曾經做過某事)
+			- knowledge:讓LLM知道預設角色的知識庫
+			- messageExamples:讓LLM知道角色應該怎麼跟user對話
+			- postExample:讓LLM知道角色應該怎麼發表文章(例如發推特)
+				- 搜集twitte工具
+					- https://github.com/elizaOS/twitter-scraper-finetune
+			- adjectives & topics: 讓LLM知道角色可以隨機產生文章的素材 可任意組合
+			- styles: 讓LLM知道角色的行為有哪些限制
+		- To load custom characters:
+			- pnpm start --characters="path/to/your/character.json"
+		- ---
+	- ### AI Agent Dev School 1 pt 2
+		- AI術語：Embeddings
+			- Embedding，中文翻譯為「嵌入」，是一種將文字、影像、音訊等非數值資料轉換為數值向量（向量：一組有序的數）的技術。這些數值向量可以被機器學習模型理解和處理，讓模型能夠從這些資料中學習到有用的資訊
+		- AI學習資源：
+			- https://developers.google.com/machine-learning/crash-course/embeddings/embedding-space?hl=zh-tw
+			-
+			- https://claude.ai
+		- providers:
+			- agent的input資訊, agent的眼睛 耳朵
+		- actions:
+			- agent可以做什麼，例如在pump.fun上發幣
+		- evaluators:
+			- agent的判斷器 決定要如何反應
+		-
+			- https://github.com/elizaOS/eliza-starter
+		- ---
+	- ### AI Agent Dev School 2
+		- 介紹Eliza的doc
+		- 介紹Actions:
+			- agent用來回應Provider的動作(例如 回話 /  轉錢到某地址  /  發幣)
+			- handler: agent實際要執行的動作(已經寫好的function)
+		- 介紹Providers:
+			- agent的input , 類似跟ChatGPT對話時的資料
+				- 例如跟GPT說：
+					- 幫我總結以下文章：“xxxxxxxxxxx”
+					- 其中的“xxxxxxxx“就是Provider負責的內容
+		- 介紹Evaluators:
+			- 每次agent的runtime都會執行
+			- 參考資源：
+				- Reflexion: Language Agents with Verbal Reinforcement
+				   https://arxiv.org/abs/2303.11366
+			- Evaluator:
+				- 根據Provider內容 決定要用哪個Action
+			- *Fact Evaluator*:
+				- Actions的handler執行完之後執行
+				- 負責儲存"Fact"，帶有時間順序的對話紀錄
+				- **Evaluator can extract data, and Provider can inject data**
+		- 介紹Client:
+			- agent's ways to connect outside
+		- 介紹Adapter:
+			- DB of agent, if agent died , the adapter will still has the data
+		- 介紹Plugin:
+			- 根據不同環境的外掛 例如有plugin-sui plugin-solana
+			- 可以包含Action / Provider / Evaluator / Client / Adapter
+				- 沒特別設定的部分就是用**plugin-bootstrap**(default)
+			- 也可以指定不同Adapter(DB)，不同Agents可以交換Adapter繼承其他Agent的
+		- 介紹eslint.config.mjs:
+			- 系統debug設定 哪些訊息定義成Warming 哪些定義成Error
+		- 物件 AgentRuntime
+			- 設定agent的所有東西 dataAdapter Client Action等等
+		- eliza-starter是elizaOS的穩定輕量版 如果只是要開發新plugin 推薦用eliza-starter
+		- [[pnpm]] run dev 可以做到部分build，修改某個file後只重新build那個file
+		- save 對話紀錄1:42:31  並讓agent記得
+		- Agent 會判斷跟話題最相關的5個knowledge 並根據knowledge內容生成回答
+		- emotion:
+		- prompt engineering
+			- 設計``XXXXXXXTemplate``裡面的動作以及動作如何排列
+				- 例如``{{knowledge}}``表示讓模型從預先寫好的knowledge中選擇N個與目前話題最相關的角色knowledge，作為生成回答的其中一個素材
+		-
+		-
+	- ### AI Agent Dev School 3
+		- loop of how agent interacting with user
+			- Steps:
+				- 1. Check database for the information we already have → provider
+				- 2. If we don't have the info, indicate to the agent in the provider that we want it -> provider
+				- 3. Evaluate for new info and store in the database if there is any → evaluator
+				- 4. Once we have all of the information, complete the goal and send off the data to some API -> evaluator
+				- 5. After goal is complete, Provider shows that information is complete, evaluator no longer validates
+		- Facts Provider:
+			- only get the FACT from past conversation
+		- fact Evaluators:
+			- ``validate``:should run the handler?
+			- ``handler``:what actually evaluator runs
+		- evaluator範例：
+			-
+-
+- 研究 how implement Evaluator
