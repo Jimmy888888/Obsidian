@@ -1,0 +1,20 @@
+- #公司專案
+- #C++_learn
+-
+- ## 專案架構
+	- C++ Poco Web框架，URL-to-handler mapping，並使用SQL跟NoSQL儲存後端資料
+	- 為何使用這樣的架構？
+		- C++ Poco ：
+			- 前人留下的架構，除了記憶體管理需要注意之外，無論是JSON格式解析，資料庫串接，多thread同步，都符合開發需求
+- ## 平常負責工作
+	- 確認PM需求
+	- 對接前端RD
+	- API後端開發 / 資料庫開發 / Unit Test
+	- 與後端RD合作
+	- 在多個services中交叉測試，修正出問題的service
+- ## 遇到的困難&解法
+	- [[特定API資料結構優化]]
+	- [[資料串流 & 修正memory leak]]
+	- [[Agents的同步狀態管理與穩定度提升]]
+-
+-

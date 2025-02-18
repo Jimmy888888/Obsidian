@@ -1,0 +1,3 @@
+- Google AI Studio aistudio.google.com
+	- system instructions:
+		- 教ai模型如何思考和回答問題

@@ -1,0 +1,187 @@
+- #ElizaOS
+- ### Here’s a detailed breakdown of “AI Agent Dev School 1 pt 1”:
+  collapsed:: true
+	- {{video https://www.youtube.com/watch?v=ArptLpQiKfI&list=PLx5pnFXdPTRzWla0RaOxALTSTnVq53fKL&index=1}}
+	- Introduction and Overview
+		- •	Purpose of the Series:
+			- •	Provides step-by-step guidance on building AI agents using the Eliza framework.
+			- •	Designed for developers with varying levels of experience in AI and software development.
+		- •	Focus of Session 1:
+			- •	Setting up the development environment.
+			- •	Introduction to key programming concepts and tools used in the Eliza ecosystem.
+	- JavaScript and Node.js
+		- •	JavaScript Basics:
+			- •	A lightweight, interpreted programming language used primarily for web development.
+			- •	Explains its asynchronous nature, making it well-suited for real-time applications.
+		- •	Node.js Overview:
+			- •	An open-source runtime environment for executing JavaScript outside the browser.
+			- •	Allows developers to use JavaScript for server-side programming.
+			- •	Supports non-blocking I/O operations, making it efficient for handling multiple requests.
+		- •	Why JavaScript?
+			- •	Strong ecosystem with extensive libraries and tools.
+			- •	Easy to learn and widely used in web and AI development.
+	- TypeScript: A Safer Alternative
+		- •	What is TypeScript?
+			- •	A superset of JavaScript that adds optional static typing.
+			- •	Developed by Microsoft to enhance JavaScript’s capabilities.
+		- •	Benefits of TypeScript:
+			- •	Detects errors at compile time, reducing runtime issues.
+			- •	Improves code maintainability in large projects.
+			- •	Integrates seamlessly with JavaScript codebases.
+	- Package Management
+		- •	npm (Node Package Manager):
+			- •	Explains how npm is used to manage JavaScript libraries and dependencies.
+			- •	Demonstrates installing packages and handling versioning.
+		- •	Monorepo Approach:
+			- •	Eliza uses a monorepo structure to house multiple packages in one repository.
+			- •	Simplifies dependency management and ensures compatibility across components.
+	- Version Control with Git and GitHub
+		- •	Git Basics:
+			- •	Tracks changes to code, enabling developers to revert to previous versions if needed.
+			- •	Discusses common Git commands like clone, commit, push, and merge.
+		- •	GitHub as a Collaboration Tool:
+			- •	Explains GitHub’s role in hosting repositories and facilitating team collaboration.
+			- •	Covers creating branches, submitting pull requests, and resolving merge conflicts.
+	- Eliza Framework Introduction
+		- •	What is Eliza?
+			- •	A framework for developing AI agents with customizable personalities and functionalities.
+			- •	Designed for modularity and extensibility.
+		- •	Core Components:
+			- •	Characters: Define the personality and behavior of AI agents.
+			- •	Embeddings: Preloaded knowledge that agents use to interact intelligently.
+			- •	Providers: Connect to external services like APIs or databases.
+	- Development Environment Setup
+		- •	Tools Required:
+			- •	Install Node.js for running JavaScript.
+			- •	Install TypeScript globally using npm.
+			- •	Set up the Eliza starter kit to begin AI agent development.
+		- •	Platform-Specific Notes:
+			- •	Windows users are encouraged to use WSL2 for a Linux-like environment.
+			- •	Cross-platform compatibility ensures developers on macOS and Linux can follow along seamlessly.
+	- Building Your First AI Agent
+		- •	Character Creation:
+			- •	Introduces YAML and JSON files for defining agent attributes.
+		- •	Attributes include:
+			- •	Name: The AI’s identifier.
+			- •	Behavior: A set of rules or guidelines dictating how the AI responds to inputs.
+			- •	Knowledge Base: Embedded data that the AI uses for decision-making.
+		- •	Testing and Running Agents:
+			- •	Demonstrates running a simple character file and interacting with it locally.
+		- •	Discord Integration:
+			- •	Provides a brief overview of connecting AI agents to Discord channels for real-time interactions.
+			- •	Outlines the steps to set up a Discord bot token and integrate it with Eliza.
+	- Community and Q&A
+		- •	Community Resources:
+			- •	Encourages joining the Eliza community for support and collaboration.
+			- •	Offers links to documentation, forums, and GitHub repositories.
+		- •	Questions Answered:
+			- •	How to troubleshoot setup issues.
+			- •	Customizing AI characters for specific use cases.
+			- •	Future plans for the series, including advanced topics like blockchain integrations and multi-agent collaboration.
+	- Key Takeaways
+		- •	This session provides a comprehensive introduction to the tools and concepts needed for AI agent development.
+		- •	Viewers gain practical skills in setting up their environment, understanding core programming concepts, and beginning their journey with Eliza.
+	- Would you like a deep dive into any specific topic or clarification on the steps to build your first agent?
+- ### Here’s a more detailed breakdown of the video “AI Agent Dev School 1 pt 2”:
+	- {{video https://www.youtube.com/watch?v=AC3h_KzLARo&list=PLx5pnFXdPTRzWla0RaOxALTSTnVq53fKL&index=2}}
+	- Introduction to JavaScript and Node.js
+	  collapsed:: true
+		- •	JavaScript Overview:
+			- •	Originally created for client-side scripting in web browsers.
+			- •	Now supports server-side development via Node.js.
+			- •	Event-driven and asynchronous nature makes it suitable for handling real-time applications.
+		- •	Node.js:
+			- •	A runtime environment that allows JavaScript to run on servers.
+			- •	Benefits include a large ecosystem and support for building scalable, network-based applications.
+	- Why TypeScript?
+	  collapsed:: true
+		- •	TypeScript:
+			- •	A superset of JavaScript that includes static typing.
+			- •	Enhances code reliability by catching type-related errors during development.
+			- •	Encourages better coding practices and helps manage large-scale projects.
+		- •	Advantages:
+			- •	Easier debugging and error checking.
+			- •	Intellisense and autocompletion in development environments.
+			- •	Compatibility with existing JavaScript code.
+	- Package Managers in JavaScript
+	  collapsed:: true
+		- •	NPM (Node Package Manager):
+			- •	The default package manager for Node.js.
+			- •	Offers a large library of reusable JavaScript packages.
+		- •	PNPM:
+			- •	Preferred over NPM for its faster installation and efficient disk usage.
+			- •	Implements a unique symlink strategy for better package management.
+	- Setting Up the Development Environment
+	  collapsed:: true
+		- •	Installing Tools:
+			- •	Install Node.js for running JavaScript outside the browser.
+			- •	Use PNPM for managing dependencies.
+		- •	Windows Subsystem for Linux (WSL2):
+			- •	Recommended for developers working on Windows to emulate a Linux-like environment.
+			- •	Improves compatibility with various tools and provides a seamless development experience.
+	- Version Control with Git and GitHub
+	  collapsed:: true
+		- •	Git:
+			- •	Tracks changes in code, facilitating collaboration in development teams.
+			- •	Concepts like branches, commits, and merges are fundamental.
+		- •	GitHub:
+			- •	A platform for hosting Git repositories.
+			- •	Provides features like pull requests, issues, and CI/CD pipelines.
+			- •	Demonstrated cloning a repository and contributing via pull requests.
+	- **Eliza AI Starter Kit**
+	  collapsed:: true
+		- https://github.com/elizaOS/eliza-starter
+		- •	Objective:
+			- •	Simplifies AI agent creation by providing a base framework.
+			- •	Allows users to build on top of existing infrastructure without altering the core.
+		- •	Getting Started:
+			- •	Clone the Eliza repository.
+			- •	Install dependencies using PNPM.
+			- •	Run the starter kit to explore example agents.
+	- **Creating a Character File**
+	  collapsed:: true
+		- •	Structure:
+			- •	A YAML or JSON-based configuration defining the agent’s personality, knowledge, and behavior.
+		- •	Fields include:
+			- •	Name: The agent’s identifier.
+			- •	Personality traits: Define how the agent interacts.
+			- •	Knowledge base: Preloaded information the agent can use.
+			- •	Customizing Agents: Easily create distinct agents by modifying the character file.
+	- Running a Character
+	  collapsed:: true
+		- •	Steps:
+			- •	Load a character file into the framework.
+			- •	Start the agent in a local environment to test its interactions.
+		- •	Discord Integration:
+			- •	Demonstrated connecting an AI agent to a Discord server.
+			- •	Enables real-time interaction with users on Discord.
+	- **Core Abstractions in Eliza**
+	  collapsed:: true
+		- •	Providers:
+			- •	Handle external resources like APIs or databases.
+			- •	Examples include wallet providers (crypto integrations) and trust score calculators.
+		- •	Actions:
+			- •	Define what the agent can do, such as fetching information, sending messages, or performing tasks.
+		- •	Evaluators:
+			- •	Assess situations and guide the agent’s decision-making process.
+	- Comparison of Actions and Tools
+	  collapsed:: true
+		- •	Actions in Eliza:
+			- •	Built-in functionalities tailored to the framework.
+			- •	Streamlined for efficiency in specific use cases.
+		- •	Tools in Other Frameworks:
+			- •	Broader and more generic, often requiring customization.
+			- •	Actions in Eliza are optimized for the platform’s unique needs.
+	- Q&A and Viewer Engagement
+	  collapsed:: true
+		- •	Topics Addressed:
+			- •	Setting up and debugging development environments.
+			- •	Strategies for developing custom character personalities.
+			- •	Adding external knowledge to AI agents.
+			- •	Upcoming sessions focusing on advanced topics like complex agent behavior and blockchain integrations.
+	- Key Takeaways
+	  collapsed:: true
+		- •	Eliza simplifies AI agent creation and deployment.
+		- •	The session provides a hands-on approach to building and running AI agents, with a focus on practical tools and frameworks.
+		- •	Emphasis on community-driven development and collaborative learning through platforms like GitHub and Discord.
+	- Let me know if you’d like to dive deeper into any of these sections!

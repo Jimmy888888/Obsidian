@@ -1,0 +1,42 @@
+public:: true
+
+- ## BTC intro
+	- Bitcoin is an open-source, decentralized digital currency that uses blockchain technology to enable secure peer-to-peer transactions. It operates without relying on any central authority, with its network and ledger maintained by nodes worldwide.
+	- websites:
+		- https://bitcoin.org/en/
+	- white paper:
+		- https://bitcoin.org/en/bitcoin-paper
+	- source code:
+		- https://bitcoin.org/en/development
+-
+- ## Core features
+	- ### [[Blockchain]]
+		- The blockchain is a distributed ledger composed of a series of blocks linked sequentially over time. Each block contains:
+			- Transaction records
+			- Hash of the previous block
+			- Proof of Work (PoW)
+	- ### [[Node]]
+		- A computer running Bitcoin software is referred to as a node. Nodes share transaction and block data across the network, verify transaction validity, and maintain network security.
+			- The Bitcoin network consists of the following types of nodes:
+				- **Full Node**: Stores the complete blockchain data and verifies all transactions and blocks.
+				- **SPV Node (Light Node)**: Downloads only block headers and verifies transactions using full nodes.
+				- **Mining Node**: Focuses on creating new blocks and participating in Proof of Work.
+	- ### Proof of Work ([[PoW]])
+		- PoW is a consensus mechanism where miners compete to solve complex hash calculations to gain the right to add a new block. The successful miner receives a Bitcoin reward.
+	- ### Bitcoin Address and Keys
+		- **Private Key**: A secret code used to sign transactions, which must be kept confidential.
+		- **Public Key**: Derived from the private key and used to create Bitcoin addresses.
+		- **Bitcoin Address**: A public identifier used to receive Bitcoin.
+- ## How the BTC Network Operates
+	- **Transaction Creation**
+		- Users create transactions using wallet software, sign them, and broadcast them to the network.
+	- **Transaction Verification**
+		- Nodes verify the validity of transactions, including checking signatures and balances.
+	- **Block Generation**
+		- Miners package transactions into blocks and compete to create new blocks through the PoW mechanism.
+	- **Block Broadcasting**#[[BTC Node Internal Communication]]
+		- New blocks are broadcast to the entire network, and all nodes verify and add them to the blockchain.
+	- **External Applications Reading BTC Network Information**#[[BTC Nodes and External Apps]]
+-
+- ## Topic study
+	- [[P2P & Node data]]

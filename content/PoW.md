@@ -1,0 +1,69 @@
+- #[[BTC Core]]
+-
+- # What will BTC network do when there are two chains with cumulative PoW , and how to guarantee no transection will loss
+	- When two chains with equal cumulative Proof of Work (PoW) temporarily exist on the Bitcoin network, this situation is called a chain split or a fork. The Bitcoin network has mechanisms to resolve such situations and ensure transaction integrity. Here’s how it works:
+	- ### What Happens When Two Chains Exist?
+		- 1.	Temporary Forks
+			- •	A fork occurs when two miners solve a block simultaneously and propagate it to the network. Nodes near each miner may accept different blocks as the latest one, resulting in two competing chains.
+			- •	These chains coexist temporarily until a new block is mined.
+		- 2.	Longest Chain Rule
+			- •	The Bitcoin protocol specifies that nodes should follow the longest valid chain (the chain with the most cumulative PoW).
+			- •	When the next block is mined, it will extend one of the competing chains, making it longer and more dominant.
+			- •	Nodes then discard the shorter chain and accept the longer one as the valid blockchain.
+	- ### How Does the Network Prevent Transaction Loss?
+		- 1.	Reorganization of **Orphaned Blocks**
+			- •	The blocks in the shorter chain are referred to as orphaned blocks.
+			- •	Transactions in orphaned blocks are not lost. Instead, they are returned to the **mempool** (the pool of unconfirmed transactions) of nodes.
+			- •	These transactions can be included in the subsequent blocks on the valid chain.
+		- 2.	Double-Spending Protection
+			- •	For a transaction to be considered confirmed, it must be included in a block that is part of the longest chain.
+			- •	Once a transaction has multiple confirmations (additional blocks built on top of the block containing the transaction), the likelihood of it being reversed becomes negligible.
+			- •	Merchants and users are advised to wait for at least 6 confirmations (approximately 1 hour) for high-value transactions to ensure finality.
+		- 3.	Validation of Transactions
+			- •	Nodes independently verify transactions against consensus rules during each block reorganization.
+			- •	Transactions that violate rules (e.g., double-spends) will not be included in any valid chain.
+	- ### Key Guarantees
+		- 1.	Consistency Across the Network
+			- •	The Bitcoin protocol ensures that all honest nodes converge on the same chain by prioritizing the longest chain with the most cumulative PoW.
+		- 2.	Incentives to Follow Rules
+			- •	Miners are incentivized to extend the longest chain because blocks on shorter chains will not earn rewards, which ensures they work toward maintaining a single valid blockchain.
+		- 3.	Transaction Persistence
+			- •	Transactions in orphaned blocks or those not included in a mined block remain in the mempool until they are confirmed in the valid chain.
+			- •	As long as the transaction is valid (e.g., sufficient fees and unspent inputs), it will eventually be confirmed.
+	- ### How This Prevents Transaction Loss
+		- The Bitcoin network is designed to handle temporary forks gracefully:
+		- •	Transactions are preserved in the mempool and reprocessed if their containing block is orphaned.
+		- •	Nodes and miners coordinate through the protocol’s rules to ensure that valid transactions are ultimately confirmed on the longest chain.
+	- By prioritizing the chain with the most work and maintaining a robust mempool system, the Bitcoin network ensures no valid transaction is permanently lost.
+-
+-
+- # what happens when mempool is full ?
+	- When the Bitcoin mempool (memory pool) is full, it means that the number of unconfirmed transactions waiting to be added to the blockchain exceeds the mempool’s capacity. Here’s what happens in such a situation:
+	- ### 1. Prioritization by Transaction Fees
+		- •	Transactions with higher fees are given priority by miners because they aim to maximize their earnings.
+		- •	Low-fee transactions may remain in the mempool for a longer time or be dropped entirely if the mempool is too congested.
+	- ### 2. Mempool Size Limits
+		- •	Each node has a maximum mempool size (commonly 300 MB, but configurable by node operators).
+		- •	When the mempool reaches its limit, nodes start dropping the lowest-fee transactions to make space for higher-fee ones.
+		- •	This process ensures that only the most economically valuable transactions remain in the mempool.
+	- ### 3. Impact on Transaction Confirmation Times
+		- •	Transactions with fees below the prevailing “minimum acceptable fee rate” might not be included in any block for an extended period.
+		- •	Users submitting low-fee transactions may experience significantly longer confirmation times or see their transactions dropped from the mempool.
+	- ### 4. Transaction Expiration
+		- •	If a transaction remains unconfirmed in the mempool for too long (default is 14 days), it may be dropped from most nodes’ mempools.
+		- •	Users can resend the transaction with a higher fee to ensure it gets included in a block (this is called fee bumping).
+	- ### 5. Network Fees Surge
+		- •	During periods of high congestion, the average transaction fee increases because users compete to get their transactions confirmed.
+		- •	The “minimum fee rate” for inclusion in a block rises, making it more expensive to transact on the network.
+	- ### 6. Solutions for Users
+		- •	Increase the Fee: Users can use techniques like Replace-by-Fee (RBF) or Child Pays for Parent (CPFP) to increase the likelihood of their transactions being confirmed.
+		- •	RBF: Allows a user to resend the same transaction with a higher fee.
+		- •	CPFP: A child transaction with a higher fee is created to incentivize miners to confirm both the parent and child transactions.
+		- •	Wait for Congestion to Subside: If a transaction is non-urgent, it can remain in the mempool until the congestion decreases.
+		- •	Use SegWit Transactions: SegWit reduces transaction size and, therefore, the fees, making them more efficient during congestion.
+	- ### 7. Long-Term Network Adjustments
+		- •	Dynamic Block Size Limit: Miners may adjust the block size (within protocol limits) to include more transactions during high congestion.
+		- •	Layer 2 Solutions: Technologies like the Lightning Network allow off-chain transactions, reducing the load on the Bitcoin blockchain.
+		- •	User Awareness: Encouraging users to monitor mempool congestion and set appropriate fees.
+	- ### Summary
+		- When the mempool is full, low-fee transactions may be delayed or dropped, and users compete for inclusion by increasing their transaction fees. Solutions like RBF, CPFP, and Layer 2 technologies help mitigate the impact of mempool congestion.
