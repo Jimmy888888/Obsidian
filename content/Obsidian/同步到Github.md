@@ -52,4 +52,4 @@ npx quartz sync --no-pull
 ## 5.完成以上四步驟就能在Github Pages看到Obsidain筆記
 
 ## 上一頁：
-[[Obisdian to Github Pages]]
+[[Export Obisdian]]

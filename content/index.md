@@ -1,7 +1,10 @@
 ---
-title: Welcome to Quartz
+title: Welcome
+tags: 
+draft: 
+cssclasses:
 ---
-[[test1]]
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+
 [[公司專案]]
+[[BTC Core]]
+[[Export Obisdian]]

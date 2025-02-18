@@ -9,4 +9,4 @@
 
 在 /quartz/content 裡新增 note
 
-[[Obisdian to Github Pages]]
+[[Export Obisdian]]
