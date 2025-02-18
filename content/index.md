@@ -1,6 +1,7 @@
 ---
 title: Welcome to Quartz
 ---
-
+[[test1]]
 This is a blank Quartz installation.
 See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+[[公司專案]]

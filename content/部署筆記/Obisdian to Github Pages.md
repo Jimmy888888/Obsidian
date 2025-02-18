@@ -23,11 +23,13 @@ npx quartz create
 ```
 (git clone後面可以加上 -f YOUR_NAME，然後改成cd YOUR_NAME)
 
-在 /quartz 底下 ，可以看到已建立git
+在 /quartz 底下 ，可以看到自動建立的git
 ```shell nums
 % git remote -v
 origin https://github.com/jackyzha0/quartz.git (fetch)
 origin https://github.com/jackyzha0/quartz.git (push)
+upstream https://github.com/jackyzha0/quartz.git (fetch)
+upstream https://github.com/jackyzha0/quartz.git (push)
 ```
 
 
