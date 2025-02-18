@@ -1,3 +1,4 @@
+#[[Unique Features]]
 ### **Building a Concurrency-Based Worker Pool in Go**
 
 A worker pool is a common concurrency pattern where a fixed number of worker goroutines process tasks from a shared queue. Let’s walk through how to build one step-by-step.
@@ -16,7 +17,7 @@ A worker pool is a common concurrency pattern where a fixed number of worker gor
 	- #### **1. Define the Task**
 		- Each task will be a function to execute.
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (
@@ -40,7 +41,7 @@ A worker pool is a common concurrency pattern where a fixed number of worker gor
 	- #### **2. Implement the Worker Pool**
 		- Create a pool of workers to process tasks concurrently.
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (

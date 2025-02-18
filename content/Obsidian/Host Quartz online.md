@@ -1,3 +1,5 @@
+#[[同步到Github]]
+
 官網：
 https://quartz.jzhao.xyz/hosting
 
@@ -64,4 +66,3 @@ npx quartz sync
 ```
 3. This should deploy your site to `<github-username>.github.io/<repository-name>`.
 
-[[同步到Github]]

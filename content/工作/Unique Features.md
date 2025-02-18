@@ -1,3 +1,4 @@
+- #[[Golang_learn]]
 - Go's unique features make it an attractive language for modern programming, especially in areas like concurrency, simplicity, and efficiency. Here's a guide to mastering Go's unique aspects.
   
   ---
@@ -7,7 +8,7 @@
 		- A goroutine is a lightweight thread managed by the Go runtime.
 		- Start a goroutine with the `go` keyword:
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (
@@ -37,7 +38,7 @@
 		- Channels enable goroutines to communicate and synchronize.
 		- Example of sending and receiving data through a channel:
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import "fmt"
@@ -56,7 +57,7 @@
 	- #### **Buffered Channels**
 		- Use buffered channels to avoid blocking until the buffer is full.
 		  
-		  ```
+		  ```go
 		  ch := make(chan int, 2)
 		  ch <- 1
 		  ch <- 2
@@ -66,7 +67,7 @@
 	- #### **Select Statement**
 		- Multiplex communication between multiple channels.
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import "fmt"
@@ -92,7 +93,7 @@
 	- #### **No Implicit Type Conversion**
 		- Go doesn’t allow implicit type conversion, forcing you to write clear and explicit code:
 		  
-		  ```
+		  ```go
 		  var a int = 10
 		  var b float64 = float64(a)
 		  fmt.Println(b)
@@ -100,7 +101,7 @@
 	- #### **Error Handling**
 		- Errors are values in Go, encouraging explicit error handling:
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (
@@ -130,7 +131,7 @@
 	- #### **Interfaces**
 		- Define behavior without tying it to a specific type:
 		  
-		  ```
+		  ```go
 		  type Speaker interface {
 		    Speak() string
 		  }
@@ -149,7 +150,7 @@
 	- #### **Type Embedding**
 		- Compose functionality by embedding types:
 		  
-		  ```
+		  ```go
 		  type Animal struct {
 		    Name string
 		  }
@@ -172,7 +173,7 @@
 - ### **4. Learn Go’s Immutability with Constants**
 	- Go enforces immutability for constants:
 	  
-	  ```
+	  ```go
 	  const Pi = 3.14
 	  const Greeting = "Hello, Go!"
 	  ```
@@ -184,7 +185,7 @@
 	- #### **Slices and Memory Sharing**
 		- Slices are references to underlying arrays, making them efficient but sharing memory:
 		  
-		  ```
+		  ```go
 		  arr := [5]int{1, 2, 3, 4, 5}
 		  slice := arr[1:4]
 		  fmt.Println(slice) // [2 3 4]
@@ -192,7 +193,7 @@
 	- #### **Pointers**
 		- Work with pointers explicitly but safely:
 		  
-		  ```
+		  ```go
 		  x := 42
 		  ptr := &x
 		  fmt.Println(*ptr) // Dereference pointer
@@ -202,7 +203,7 @@
 	- #### **`defer`**
 		- Schedule cleanup tasks:
 		  
-		  ```
+		  ```go
 		  func main() {
 		    defer fmt.Println("This will run last")
 		    fmt.Println("This will run first")
@@ -211,7 +212,7 @@
 	- #### **`panic` and `recover`**
 		- Handle unexpected conditions:
 		  
-		  ```
+		  ```go
 		  func main() {
 		    defer func() {
 		        if r := recover(); r != nil {
@@ -227,7 +228,7 @@
 	- #### **`net/http`**
 		- Build web servers:
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (
@@ -247,7 +248,7 @@
 	- #### **`sync`**
 		- Work with mutexes and wait groups:
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (

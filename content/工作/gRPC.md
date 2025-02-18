@@ -1,9 +1,12 @@
+#[[Golang_learn]]
 ### **Introduction to gRPC in Go**
-	- gRPC (Google Remote Procedure Call) is a high-performance, open-source framework developed by Google. It uses **Protocol Buffers (Protobuf)** as its interface definition language (IDL) to define services and messages. gRPC is commonly used to build APIs that are efficient, scalable, and **language-agnostic**.
-		- language-agnostic:
-			- 表示使用 gRPC 建立的 API，不需要特別針對某種特定的程式語言進行開發。也就是說，無論你使用 Java、Python、Go 還是其他支援 gRPC 的語言，都可以輕鬆地開發和使用這些 API，而不需要對程式碼進行大幅修改。
-	- Go has excellent support for gRPC through the `google.golang.org/grpc` library.
-	- ---
+
+gRPC (Google Remote Procedure Call) is a high-performance, open-source framework developed by Google. It uses **Protocol Buffers (Protobuf)** as its interface definition language (IDL) to define services and messages. gRPC is commonly used to build APIs that are efficient, scalable, and **language-agnostic**.
+
+language-agnostic:
+	-- 表示使用 gRPC 建立的 API，不需要特別針對某種特定的程式語言進行開發。也就是說，無論你使用 Java、Python、Go 還是其他支援 gRPC 的語言，都可以輕鬆地開發和使用這些 API，而不需要對程式碼進行大幅修改。
+	-- Go has excellent support for gRPC through the `google.golang.org/grpc` library.
+	---
 - ### **Why Use gRPC?**
 	- **Performance**: Lightweight and faster than REST due to binary serialization with Protobuf.
 	- **Code Generation**: Automatically generates server and client code from `.proto` files.
@@ -33,7 +36,7 @@
 - ### **Building a gRPC Service in Go**
 	- #### **1. Define the Service in a `.proto` File**
 		- Create a file called `example.proto`:
-		  ```
+		  ```go
 		  syntax = "proto3";
 		  
 		  package example;
@@ -61,7 +64,7 @@
 			- `example_grpc.pb.go`: Contains the gRPC client and server interface.
 	- #### **3. Implement the Server**
 		- Create `server.go`:
-			- ```
+			- ```go
 			  package main
 			  
 			  import (
@@ -102,7 +105,7 @@
 			  ```
 	- #### **4. Implement the Client**
 		- Create `client.go`:
-			- ```
+			- ```go
 			  package main
 			  
 			  import (
@@ -156,13 +159,13 @@
 	  ---
 - ### **Example: Server Streaming**
 	- #### Update the  `.proto`  file:
-		- ```
+		- ```go
 		  service Greeter {
 		  rpc SayHello (HelloRequest) returns (stream HelloReply);
 		  }
 		  ```
 	- #### Update the Server:
-		- ```
+		- ```go
 		  func (s *Server) SayHello(req *pb.HelloRequest, stream pb.Greeter_SayHelloServer) error {
 		  for i := 0; i < 5; i++ {
 		  err := stream.Send(&pb.HelloReply{Message: fmt.Sprintf("Hello %s - %d", req.GetName(), i+1)})
@@ -175,7 +178,7 @@
 		  }
 		  ```
 	- #### Update the Client:
-		- ```
+		- ```go
 		  stream, err := client.SayHello(ctx, &pb.HelloRequest{Name: "Go Developer"})
 		  if err != nil {
 		  log.Fatalf("Error calling SayHello: %v", err)

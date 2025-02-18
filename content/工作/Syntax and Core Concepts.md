@@ -1,3 +1,4 @@
+- #[[Golang_learn]]
 - To learn the syntax and core concepts of Go effectively, you need a mix of theoretical learning and hands-on practice. Here’s a structured plan to guide you:
   
   ---
@@ -13,7 +14,7 @@
 	- Start with small examples and run them frequently.
 	- #### Hello, World!
 	  
-	  ```
+	  ```go
 	  package main
 	  
 	  import "fmt"
@@ -24,14 +25,14 @@
 	  ```
 	  
 	  Run it with:
-	  ```
+	  ```shell
 	  go run main.go
 	  ```
 	  
 	  ---
 	- #### Variables and Constants
 	  
-	  ```
+	  ```go
 	  package main
 	  
 	  import "fmt"
@@ -49,7 +50,7 @@
 	- #### Control Structures
 		- **If-Else**
 		  
-		  ```
+		  ```go
 		  if x > 10 {
 		    fmt.Println("x is greater than 10")
 		  } else {
@@ -58,14 +59,14 @@
 		  ```
 		- **For Loop** (Go doesn’t have while loops; `for` is versatile)
 		  
-		  ```
+		  ```go
 		  for i := 0; i < 5; i++ {
 		    fmt.Println(i)
 		  }
 		  ```
 		- **Switch**
 		  
-		  ```
+		  ```go
 		  switch day {
 		  case "Monday":
 		    fmt.Println("Start of the week!")
@@ -83,20 +84,20 @@
 	- #### Arrays and Slices
 		- **Arrays**: Fixed size
 		  
-		  ```
+		  ```go
 		  var arr [3]int = [3]int{1, 2, 3}
 		  fmt.Println(arr)
 		  ```
 		- **Slices**: Dynamic
 		  
-		  ```
+		  ```go
 		  slice := []int{1, 2, 3}
 		  slice = append(slice, 4)
 		  fmt.Println(slice)
 		  ```
 	- #### Maps (Dictionaries)
 	  
-	  ```
+	  ```go
 	  m := make(map[string]int)
 	  m["one"] = 1
 	  m["two"] = 2
@@ -106,20 +107,20 @@
 - ### 4.  **Learn Functions and Methods**
 	- #### Functions
 	  
-	  ```
+	  ```go
 	  func add(a int, b int) int {
 	    return a + b
 	  }
 	  ```
 	  
 	  Call it with:
-	  ```
+	  ```go
 	  result := add(2, 3)
 	  fmt.Println(result)
 	  ```
 	- #### Methods (Associated with types)
 	  
-	  ```
+	  ```go
 	  type Rectangle struct {
 	    width, height int
 	  }
@@ -132,7 +133,7 @@
 - ### 5.  **Error Handling**
 	- Go doesn’t have exceptions; it uses error values.
 	  
-	  ```
+	  ```go
 	  package main
 	  
 	  import (
@@ -160,7 +161,7 @@
 - ### 6.  **Learn Concurrency Basics**
 	- Go’s lightweight threads, **goroutines**, and **channels** make concurrency simple.
 	  
-	  ```
+	  ```go
 	  go sayHello() // Runs in a separate thread
 	  
 	  func sayHello() {

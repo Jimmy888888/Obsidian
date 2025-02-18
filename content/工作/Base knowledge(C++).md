@@ -1,4 +1,4 @@
-- #C++_learn
+- #[[C++_learn]]
 -
 - 以下為chatGPT內容，可能有誤
 -
@@ -19,13 +19,13 @@
 	- Copy and run this code in your C++ compiler:
 	- ```
 	  #include <iostream>  // Header file for input/output
-	  - int main() {
+	  int main() {
 	    std::cout << "Hello, World!" << std::endl;  // Print message
 	    return 0;  // End program
 	  }
-	  ```
+	
 	- **Explanation:**
-	- 1.	# include <iostream> → Includes the Input/Output library.
+	- 1. include <iostream> → Includes the Input/Output library.
 	- 2.	int main() → Every C++ program must have a main function.
 	- 3.	std::cout << "Hello, World!" → Prints text to the screen.
 	- 4.	return 0; → Indicates that the program ran successfully.

@@ -1,5 +1,7 @@
+#[[Unique Features]]
+
 ### **Building a File Processor in Go**
-	- A file processor in Go is a program that reads, writes, or transforms files efficiently. Go’s standard library provides powerful tools for file handling and manipulation, making it a great choice for building file processors.
+A file processor in Go is a program that reads, writes, or transforms files efficiently. Go’s standard library provides powerful tools for file handling and manipulation, making it a great choice for building file processors.
 	  
 	  ---
 - ### **Features of a File Processor**
@@ -25,7 +27,7 @@
 	- #### **2. Read File Content**
 		- Use Go’s `os` and `bufio` packages to read a file.
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (
@@ -56,7 +58,7 @@
 	- #### **3. Write File Content**
 		- Create a function to write content to a new file.
 		  
-		  ```
+		  ```go
 		  func writeFile(filePath string, lines []string) error {
 		    file, err := os.Create(filePath)
 		    if err != nil {
@@ -77,7 +79,7 @@
 	- #### **4. Process File Content**
 		- Transform the file content (e.g., convert text to uppercase).
 		  
-		  ```
+		  ```go
 		  import "strings"
 		  
 		  func processLines(lines []string) []string {
@@ -91,7 +93,7 @@
 	- #### **5. Main Program**
 		- Combine everything to process a file.
 		  
-		  ```
+		  ```go
 		  func main() {
 		    inputFile := "input.txt"
 		    outputFile := "output.txt"
@@ -119,7 +121,7 @@
 - ### **Concurrent File Processing**
 	- To process multiple files concurrently, use goroutines and channels.
 	  
-	  ```
+	  ```go
 	  import (
 	    "sync"
 	  )

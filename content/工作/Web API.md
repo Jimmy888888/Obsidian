@@ -1,6 +1,7 @@
+#[[Unique Features]]
 ### **Building a Web API with Go**
-	- Go’s `net/http` package makes it straightforward to create robust and performant web APIs. Here’s a guide to building a simple RESTful API step by step.
-	- ---
+Go’s `net/http` package makes it straightforward to create robust and performant web APIs. Here’s a guide to building a simple RESTful API step by step.
+	---
 - ### **Overview of the API**
 	- **Features**:
 		- Create, read, update, and delete (CRUD) operations for a resource (e.g., "tasks").
@@ -22,7 +23,7 @@
 	- #### **2. Define the Data Model**
 		- Let’s create a `Task` struct to represent our resource.
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  type Task struct {
@@ -35,7 +36,7 @@
 	- #### **3. In-Memory Storage**
 		- Use a slice to store tasks for simplicity (you can later replace it with a database).
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  var tasks = []Task{
@@ -46,7 +47,7 @@
 	- #### **4. Handlers for CRUD Operations**
 		- **Get All Tasks**:
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (
@@ -61,7 +62,7 @@
 		  ```
 		- **Create a Task**:
 		  
-		  ```
+		  ```go
 		  func createTask(w http.ResponseWriter, r *http.Request) {
 		    var newTask Task
 		    if err := json.NewDecoder(r.Body).Decode(&newTask); err != nil {
@@ -76,7 +77,7 @@
 		  ```
 		- **Get a Task by ID**:
 		  
-		  ```
+		  ```go
 		  func getTaskByID(w http.ResponseWriter, r *http.Request) {
 		    id := r.URL.Query().Get("id")
 		    for _, task := range tasks {
@@ -91,7 +92,7 @@
 		  ```
 		- **Update a Task**:
 		  
-		  ```
+		  ```go
 		  func updateTask(w http.ResponseWriter, r *http.Request) {
 		    id := r.URL.Query().Get("id")
 		    var updatedTask Task
@@ -114,7 +115,7 @@
 		  ```
 		- **Delete a Task**:
 		  
-		  ```
+		  ```go
 		  func deleteTask(w http.ResponseWriter, r *http.Request) {
 		    id := r.URL.Query().Get("id")
 		    for i, task := range tasks {
@@ -132,7 +133,7 @@
 	- #### **5. Set Up Routing**
 		- Use Go’s `http.HandleFunc` to define routes and their handlers.
 		  
-		  ```
+		  ```go
 		  package main
 		  
 		  import (

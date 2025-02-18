@@ -33,7 +33,7 @@ upstream https://github.com/jackyzha0/quartz.git (push)
 ```
 
 
-## [[新增Obsidian頁面]]
+## 🪴  [[新增Obsidian頁面]]
 
-## [[同步到Github]]
+## 🪴 [[同步到Github]]
 

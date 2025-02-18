@@ -1,4 +1,6 @@
 
+#[[Export Obisdian]]
+
 在Github創立新的repository，複製SSH ``REMOTE-URL``
 *因為目前git遠端push只能用SSH key驗證*
 
@@ -46,10 +48,6 @@ npx quartz sync --no-pull
 ```
 
 
-
 ## 4.[[Host Quartz online]]
 
 ## 5.完成以上四步驟就能在Github Pages看到Obsidain筆記
-
-## 上一頁：
-[[Export Obisdian]]

@@ -1,6 +1,7 @@
+#[[Golang_learn]]
 ### **Introduction to Gin Web Framework**
-	- [Gin](https://github.com/gin-gonic/gin) is a fast, lightweight, and flexible web framework for building APIs in Go. It is designed to handle HTTP requests efficiently while providing essential features like routing, middleware, and JSON handling.
-	- ---
+[Gin](https://github.com/gin-gonic/gin) is a fast, lightweight, and flexible web framework for building APIs in Go. It is designed to handle HTTP requests efficiently while providing essential features like routing, middleware, and JSON handling.
+	
 - ### **Why Use Gin?**
 	- **Performance**: Optimized for speed; great for high-performance APIs.
 	- **Easy Routing**: Simplifies URL-to-handler mapping.
@@ -18,7 +19,7 @@
 	  ```
 	- ---
 - ### **Basic Example**
-	- ```
+	- ```go
 	  package main
 	  
 	  import (
@@ -39,40 +40,36 @@
 	- ---
 - ### **Key Concepts**
 	- #### **1. Routes and Handlers**
-	  collapsed:: true
 		- Define routes with HTTP methods (`GET`, `POST`, `PUT`, `DELETE`).
 		- Use `Context` (passed to handlers) to handle request and response data.
 		  
-		  ```
+		  ```go
 		  router.GET("/hello", func(c *gin.Context) {
 		    c.JSON(http.StatusOK, gin.H{"message": "Hello, World!"})
 		  })
 		  ```
 	- #### **2. Path Parameters**
-	  collapsed:: true
 		- Extract values from the URL path.
 		  
-		  ```
+		  ```go
 		  router.GET("/user/:id", func(c *gin.Context) {
 		    id := c.Param("id") // Extract the value of :id
 		    c.JSON(http.StatusOK, gin.H{"user_id": id})
 		  })
 		  ```
 	- #### **3. Query Parameters**
-	  collapsed:: true
 		- Read query string values.
 		  
-		  ```
+		  ```go
 		  router.GET("/search", func(c *gin.Context) {
 		    query := c.Query("q") // Get the query parameter "q"
 		    c.JSON(http.StatusOK, gin.H{"query": query})
 		  })
 		  ```
 	- #### **4. JSON Request Body**
-	  collapsed:: true
 		- Parse JSON from the request body.
 		  
-		  ```
+		  ```go
 		  type Task struct {
 		    Title       string `json:"title" binding:"required"`
 		    Description string `json:"description"`
@@ -88,10 +85,9 @@
 		  })
 		  ```
 	- #### **5. Middleware**
-	  collapsed:: true
 		- Add custom middleware to process requests.
 		  
-		  ```
+		  ```go
 		  router.Use(func(c *gin.Context) {
 		    c.Writer.Header().Set("X-Custom-Header", "GinMiddleware")
 		    c.Next() // Proceed to the next middleware/handler
@@ -100,8 +96,7 @@
 	- ---
 - ### **Building a REST API with Gin**
 	- #### **1. Define the Data Model**
-	  collapsed:: true
-		- ```
+		- ```go
 		  type Task struct {
 		    ID          int    `json:"id"`
 		    Title       string `json:"title" binding:"required"`
@@ -114,8 +109,8 @@
 		  }
 		  ```
 	- #### **2. Implement Handlers**
-	  collapsed:: true
-		- ```
+	  
+		- ```go
 		  func getAllTasks(c *gin.Context) {
 		  	c.JSON(http.StatusOK, tasks)
 		  }
@@ -189,8 +184,8 @@
 		  }
 		  ```
 	- #### **3. Run the Server**
-	  collapsed:: true
-		- ```
+	  
+		- ```go
 		  func main() {
 		    router := gin.Default()
 		  

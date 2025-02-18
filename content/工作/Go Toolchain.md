@@ -1,3 +1,4 @@
+- #[[Golang_learn]]
 - Learning the Go toolchain involves understanding the essential commands and tools that Go provides for building, running, testing, and managing your projects. Here’s a structured approach to mastering the Go toolchain:
   
   ---
@@ -77,7 +78,7 @@
 	  ```
 	- #### Example Test
 	  
-	  ```
+	  ```go
 	  package main
 	  
 	  import "testing"
@@ -234,7 +235,7 @@
 	- #### **Step 2: Write the Code**
 		- Create a `main.go` file:
 		  go
-		  ```
+		  ```go
 		  package main
 		  
 		  import (
@@ -294,7 +295,7 @@
 	- #### **Step 4: Test the Code**
 		- Create `main_test.go`:
 		  go
-		  ```
+		  ```go
 		  package main
 		  
 		  import "testing"
