@@ -14,5 +14,5 @@
 	- 與後端RD合作
 	- 在多個services中交叉測試，修正出問題的service
 - ## 挑戰
-	- [[設計可拓展的SQL table結構 & 優化Query語法]]
+	- [[設計可拓展的SQL table結構]]
 	- [[優化NoSQL Query語法]]
