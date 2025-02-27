@@ -1,5 +1,13 @@
 - #[[SQL_&_NoSQL專案]]
-- (撰寫中)
+- 
 - ## 需求
+	- 使用者需要從NoSQL 中獲得具有特定特徵的多個資料群體的*每一個*群體的統計數字
 - ## 問題描述
+	- 原版使用WHERE語法使用共同特徵先撈取多個資料群體到Backend，之後Backend再根據不同群體的獨特特徵做統計
+	- 將資料搬到Backend再進行處理，容易隨著資料量增加而面臨記憶體不足的問題，且處理耗時容易過長
 - ## 解法
+	- 思路：嘗試將統計資料的任務交給NoSQL處理，讓Backend收到一串已經統計好的資料
+	- 理由：NoSQL有原生COUNT功能，效能明顯好過將資料搬到Backend再計算資料長度
+	  若能在COUNT之上又做到分組，整體系統效能可以大幅提升
+	- 閱讀InfluxDB的doc後，嘗試結合COUNT與GROUP語法，達到可依據tag欄位進行分組並計算每組資料筆數。最後結合WHERE進行篩選，便可得到符合特徵的多個資料群體的*每一個*群體的統計數字
+	- 例如：“SELECT COUNT(aaa) FROM bbb_Measurement WHERE %s GROUP BY ccc_tag, ddd_tag”
